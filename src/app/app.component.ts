@@ -9,7 +9,7 @@ import {RouterLinkActive, RouterLink, RouterOutlet, Router} from '@angular/route
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
+    styleUrls: ['./app.component.scss'],
     standalone: true,
     imports: [RouterLinkActive, RouterLink, NgIf, RouterOutlet]
 })

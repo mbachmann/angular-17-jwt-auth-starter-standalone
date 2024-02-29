@@ -5,7 +5,7 @@ import { NgIf, NgFor } from '@angular/common';
 @Component({
     selector: 'app-profile',
     templateUrl: './profile.component.html',
-    styleUrls: ['./profile.component.css'],
+    styleUrls: ['./profile.component.scss'],
     standalone: true,
     imports: [NgIf, NgFor]
 })

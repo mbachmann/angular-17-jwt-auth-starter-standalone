@@ -4,7 +4,7 @@ import { UserService } from '../_services/user.service';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css'],
+    styleUrls: ['./home.component.scss'],
     standalone: true
 })
 export class HomeComponent implements OnInit {

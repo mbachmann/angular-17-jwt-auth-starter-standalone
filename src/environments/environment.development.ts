@@ -1,0 +1,10 @@
+import {Environment} from "./environment.model";
+
+declare var require: any
+export const environment: Environment = {
+  production: true,
+  version: require('../../package.json').version,
+  redirectApiUrl: 'http://localhost:8080/api/test/',
+  redirectSignupUrl: 'http://localhost:8080/api/auth/',
+  redirectLoginUrl: 'http://localhost:8080/api/auth/'
+};

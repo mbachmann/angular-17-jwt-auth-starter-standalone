@@ -1,0 +1,16 @@
+version: '3'
+services:
+  # Angular Landing Page
+  angular-17-jwt-auth:
+    image: registry-1.docker.io/angular-17-jwt-auth-starter-standalone:latest
+    container_name: angular-17-jwt-auth
+    ports:
+      - 4100:80
+    # uncomment lines for build if the build of the image has to be performed
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
+    environment:
+      API_URL: https://www-dev.chall.ch/api/test/
+      LOGIN_URL: https://www-dev.chall.ch/api/auth/
+      SIGNUP_URL: https://www-dev.chall.ch/api/auth/
