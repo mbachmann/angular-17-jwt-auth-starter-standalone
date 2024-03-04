@@ -11,6 +11,6 @@ services:
     #  context: .
     #  dockerfile: Dockerfile
     environment:
-      API_URL: https://www-dev.chall.ch/api/test/
-      LOGIN_URL: https://www-dev.chall.ch/api/auth/
-      SIGNUP_URL: https://www-dev.chall.ch/api/auth/
+      API_URL: https://pipeline-api-devx.chall.ch/api/test/
+      LOGIN_URL: https://pipeline-api-devx.chall.ch/api/auth/
+      SIGNUP_URL: https://pipeline-api-devx.chall.ch/api/auth/
