@@ -4,6 +4,7 @@
 - Frontend: https://github.com/mbachmann/angular-17-jwt-auth-starter-standalone.git
 
 Build Angular 17 JWT Authentication & Authorization example with Rest Api, HttpOnly Cookie and JWT (including HttpInterceptor, Router & Form Validation).
+
 - JWT Authentication Flow for User Registration (Signup) & User Login
 - Project Structure with HttpInterceptor, Router
 - Way to implement HttpInterceptor
@@ -14,8 +15,9 @@ Build Angular 17 JWT Authentication & Authorization example with Rest Api, HttpO
 - Working with Browser Session Storagegit s
 
 ## Flow for User Registration and User Login
+
 For JWT – Token based Authentication with Rest API, we’re gonna call 2 endpoints:
+
 - POST `api/auth/signup` for User Registration
 - POST `api/auth/signin` for User Login
 - POST `api/auth/signout` for User Logout
-

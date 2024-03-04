@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../core/_shared/_services/user.service';
 
 @Component({
-    selector: 'app-board-user',
-    templateUrl: './board-user.component.html',
-    styleUrls: ['./board-user.component.scss'],
-    standalone: true
+  selector: 'app-board-user',
+  templateUrl: './board-user.component.html',
+  styleUrls: ['./board-user.component.scss'],
+  standalone: true,
 })
 export class BoardUserComponent implements OnInit {
   content?: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.userService.getUserBoard().subscribe({
@@ -28,7 +28,7 @@ export class BoardUserComponent implements OnInit {
         } else {
           this.content = `Error with status: ${err.status}`;
         }
-      }
+      },
     });
   }
 }

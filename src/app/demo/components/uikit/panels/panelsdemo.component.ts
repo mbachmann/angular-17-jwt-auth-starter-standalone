@@ -13,33 +13,47 @@ import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 
 @Component({
-    templateUrl: './panelsdemo.component.html',
-    standalone: true,
-    imports: [ToolbarModule, ButtonModule, SplitButtonModule, AccordionModule, TabViewModule, PanelModule, FieldsetModule, MenuModule, InputTextModule, DividerModule, SplitterModule, SharedModule]
+  templateUrl: './panelsdemo.component.html',
+  standalone: true,
+  imports: [
+    ToolbarModule,
+    ButtonModule,
+    SplitButtonModule,
+    AccordionModule,
+    TabViewModule,
+    PanelModule,
+    FieldsetModule,
+    MenuModule,
+    InputTextModule,
+    DividerModule,
+    SplitterModule,
+    SharedModule,
+  ],
 })
 export class PanelsDemoComponent implements OnInit {
+  items: MenuItem[] = [];
 
-    items: MenuItem[] = [];
+  cardMenu: MenuItem[] = [];
 
-    cardMenu: MenuItem[] = [];
+  ngOnInit() {
+    this.items = [
+      { label: 'Angular.io', icon: 'pi pi-external-link', url: 'http://angular.io' },
+      { label: 'Theming', icon: 'pi pi-bookmark', routerLink: ['/theming'] },
+    ];
 
-    ngOnInit() {
-        this.items = [
-            { label: 'Angular.io', icon: 'pi pi-external-link', url: 'http://angular.io' },
-            { label: 'Theming', icon: 'pi pi-bookmark', routerLink: ['/theming'] }
-        ];
-
-        this.cardMenu = [
-            {
-                label: 'Save', icon: 'pi pi-fw pi-check'
-            },
-            {
-                label: 'Update', icon: 'pi pi-fw pi-refresh'
-            },
-            {
-                label: 'Delete', icon: 'pi pi-fw pi-trash'
-            },
-        ];
-    }
-    
+    this.cardMenu = [
+      {
+        label: 'Save',
+        icon: 'pi pi-fw pi-check',
+      },
+      {
+        label: 'Update',
+        icon: 'pi pi-fw pi-refresh',
+      },
+      {
+        label: 'Delete',
+        icon: 'pi pi-fw pi-trash',
+      },
+    ];
+  }
 }

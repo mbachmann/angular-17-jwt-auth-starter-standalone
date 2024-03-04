@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../core/_shared/_services/user.service';
 
 @Component({
-    selector: 'app-board-moderator',
-    templateUrl: './board-moderator.component.html',
-    styleUrls: ['./board-moderator.component.scss'],
-    standalone: true
+  selector: 'app-board-moderator',
+  templateUrl: './board-moderator.component.html',
+  styleUrls: ['./board-moderator.component.scss'],
+  standalone: true,
 })
 export class BoardModeratorComponent implements OnInit {
   content?: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.userService.getModeratorBoard().subscribe({
@@ -28,7 +28,7 @@ export class BoardModeratorComponent implements OnInit {
         } else {
           this.content = `Error with status: ${err.status}`;
         }
-      }
+      },
     });
   }
 }

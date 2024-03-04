@@ -2,7 +2,7 @@
   "name": "angular-17-jwt-auth-starter-standalone",
   "config": {
     "app": "angular-17-jwt-auth-starter-standalone",
-    "repo": "registry-1.docker.io"
+    "repo": ""
   },
   "version": "0.0.1",
   "scripts": {

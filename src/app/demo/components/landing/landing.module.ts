@@ -9,15 +9,6 @@ import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        LandingRoutingModule,
-        DividerModule,
-        StyleClassModule,
-        ChartModule,
-        PanelModule,
-        ButtonModule,
-        LandingComponent
-    ]
+  imports: [CommonModule, LandingRoutingModule, DividerModule, StyleClassModule, ChartModule, PanelModule, ButtonModule, LandingComponent],
 })
-export class LandingModule { }
+export class LandingModule {}

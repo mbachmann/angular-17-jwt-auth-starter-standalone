@@ -7,13 +7,6 @@ import { TreeModule } from 'primeng/tree';
 import { TreeTableModule } from 'primeng/treetable';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        TreeDemoRoutingModule,
-        FormsModule,
-        TreeModule,
-        TreeTableModule,
-        TreeDemoComponent
-    ],
+  imports: [CommonModule, TreeDemoRoutingModule, FormsModule, TreeModule, TreeTableModule, TreeDemoComponent],
 })
-export class TreeDemoModule { }
+export class TreeDemoModule {}

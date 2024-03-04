@@ -11,7 +11,10 @@ import { EventData } from '../_event/event.class';
 export class HttpRequestInterceptor implements HttpInterceptor {
   private isRefreshing = false;
 
-  constructor(private storageService: StorageService, private eventBusService: EventBusService) { }
+  constructor(
+    private storageService: StorageService,
+    private eventBusService: EventBusService,
+  ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     req = req.clone({
@@ -19,10 +22,9 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     });
 
     return next.handle(req).pipe(
-      catchError((error) => {
+      catchError(error => {
         if (error instanceof HttpErrorResponse) {
-          if ( !req.url.includes('auth/signin') &&
-            error.status === 401) {
+          if (!req.url.includes('auth/signin') && error.status === 401) {
             return this.handle401Error(req, next);
           }
         } else if (error?.error?.message) {
@@ -31,21 +33,21 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         } else {
           switch (error.status) {
             case 0:
-              console.log(`No connection to the backend.`)
+              console.log(`No connection to the backend.`);
               //this.messageService.error(
-                //$localize`No connection to the backend.`,
-                //error
+              //$localize`No connection to the backend.`,
+              //error
               //);
               break;
             case 401:
-              console.log(`The current session is not valid anymore. Please close the browser window and start the App again.`)
+              console.log(`The current session is not valid anymore. Please close the browser window and start the App again.`);
               //this.messageService.error(
               //  $localize`The current session is not valid anymore. Please close the browser window and start the App again.`,
               //  error
               //);
               break;
             case 404:
-              console.log(`The object ${error.error.message} has not been found or is inactive.`)
+              console.log(`The object ${error.error.message} has not been found or is inactive.`);
 
               //this.messageService.error(
               //  $localize`The object ${error.error.message} has not been found or is inactive.`,
@@ -54,12 +56,12 @@ export class HttpRequestInterceptor implements HttpInterceptor {
               break;
             default:
               console.log(error.message, error);
-              //this.messageService.error(error.message, error);
+            //this.messageService.error(error.message, error);
           }
         }
         this.createErrorMessage(error);
         return throwError(() => error);
-      })
+      }),
     );
   }
 
@@ -77,24 +79,19 @@ export class HttpRequestInterceptor implements HttpInterceptor {
 
   createErrorMessage(error) {
     if (error && error.message && error.error.message) {
-      console.log("Backend no Response")
-      if (error.error.message.toLowerCase().startsWith("Bad credentials")) {
-        error.error.message = "User name and/or password not valid";
+      console.log('Backend no Response');
+      if (error.error.message.toLowerCase().startsWith('Bad credentials')) {
+        error.error.message = 'User name and/or password not valid';
       } else {
         error.message = error.error.message;
       }
-
     } else {
-      console.log("Backend no Response")
-      if (error.message && error.message.toLowerCase().startsWith("http failure response")) {
-        error.message = "No reponse from server! Do you have an internet connection?";
+      console.log('Backend no Response');
+      if (error.message && error.message.toLowerCase().startsWith('http failure response')) {
+        error.message = 'No reponse from server! Do you have an internet connection?';
       }
     }
   }
 }
 
-
-
-export const httpInterceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
-];
+export const httpInterceptorProviders = [{ provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }];

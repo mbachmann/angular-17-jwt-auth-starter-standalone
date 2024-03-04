@@ -11,28 +11,37 @@ import { BadgeModule } from 'primeng/badge';
 import { ProgressBarModule } from 'primeng/progressbar';
 
 @Component({
-    templateUrl: './miscdemo.component.html',
-    standalone: true,
-    imports: [ProgressBarModule, BadgeModule, ButtonModule, AvatarGroupModule, AvatarModule, ScrollPanelModule, ScrollTopModule, TagModule, ChipModule, SkeletonModule]
+  templateUrl: './miscdemo.component.html',
+  standalone: true,
+  imports: [
+    ProgressBarModule,
+    BadgeModule,
+    ButtonModule,
+    AvatarGroupModule,
+    AvatarModule,
+    ScrollPanelModule,
+    ScrollTopModule,
+    TagModule,
+    ChipModule,
+    SkeletonModule,
+  ],
 })
 export class MiscDemoComponent implements OnInit, OnDestroy {
+  value = 0;
 
-    value = 0;
+  interval: any;
 
-    interval: any;
-
-    ngOnInit() {
-        this.interval = setInterval(() => {
-            this.value = this.value + Math.floor(Math.random() * 10) + 1;
-            if (this.value >= 100) {
-                this.value = 100;
-                clearInterval(this.interval);
-            }
-        }, 2000);
-    }
-
-    ngOnDestroy() {
+  ngOnInit() {
+    this.interval = setInterval(() => {
+      this.value = this.value + Math.floor(Math.random() * 10) + 1;
+      if (this.value >= 100) {
+        this.value = 100;
         clearInterval(this.interval);
-    }
-    
+      }
+    }, 2000);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.interval);
+  }
 }

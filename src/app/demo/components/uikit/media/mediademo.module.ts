@@ -8,14 +8,6 @@ import { GalleriaModule } from 'primeng/galleria';
 import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        MediaDemoRoutingModule,
-        ButtonModule,
-        ImageModule,
-        GalleriaModule,
-        CarouselModule,
-        MediaDemoComponent
-    ]
+  imports: [CommonModule, MediaDemoRoutingModule, ButtonModule, ImageModule, GalleriaModule, CarouselModule, MediaDemoComponent],
 })
-export class MediaDemoModule { }
+export class MediaDemoModule {}

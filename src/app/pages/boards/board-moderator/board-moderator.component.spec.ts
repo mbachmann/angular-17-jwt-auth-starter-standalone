@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BoardModeratorComponent } from './board-moderator.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('BoardModeratorComponent', () => {
   let component: BoardModeratorComponent;
@@ -9,9 +9,8 @@ describe('BoardModeratorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule, BoardModeratorComponent]
-})
-    .compileComponents();
+      imports: [HttpClientTestingModule, BoardModeratorComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BoardModeratorComponent);
     component = fixture.componentInstance;

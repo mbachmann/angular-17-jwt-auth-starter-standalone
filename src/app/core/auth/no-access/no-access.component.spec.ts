@@ -8,10 +8,9 @@ describe('NoAccessComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NoAccessComponent]
-    })
-    .compileComponents();
-    
+      imports: [NoAccessComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(NoAccessComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -3,19 +3,19 @@ import { Subscription } from 'rxjs';
 import { StorageService } from './core/_shared/_services/storage.service';
 import { AuthService } from './core/_shared/_services/auth.service';
 import { EventBusService } from './core/_shared/_event/event-bus.service';
-import {NgClass, NgIf} from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { RouterLinkActive, RouterLink, RouterOutlet, Router } from '@angular/router';
-import { PrimeNGConfig } from "primeng/api";
-import {ChallLandingComponent} from "./pages/landing/chall-landing.component";
-import {LayoutService} from "./core/layout/service/app.layout.service";
-import {environment} from "../environments/environment";
+import { PrimeNGConfig } from 'primeng/api';
+import { ChallLandingComponent } from './pages/landing/chall-landing.component';
+import { LayoutService } from './core/layout/service/app.layout.service';
+import { environment } from '../environments/environment';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    standalone: true,
-  imports: [RouterLinkActive, RouterLink, NgIf, RouterOutlet, ChallLandingComponent, NgClass]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [RouterLinkActive, RouterLink, NgIf, RouterOutlet, ChallLandingComponent, NgClass],
 })
 export class AppComponent {
   private roles: string[] = [];
@@ -23,7 +23,7 @@ export class AppComponent {
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
-  title: string = "angular-17-jwt-auth";
+  title: string = 'angular-17-jwt-auth';
   eventBusSub?: Subscription;
 
   constructor(
@@ -43,13 +43,13 @@ export class AppComponent {
       this.logout();
     });
 
-    this.eventBusService.on('login', (value: string)  => {
+    this.eventBusService.on('login', (value: string) => {
       console.log('redirect', value);
       this.init();
     });
   }
 
-  private init () {
+  private init() {
     this.isLoggedIn = this.storageService.isLoggedIn();
 
     if (this.isLoggedIn) {
@@ -60,24 +60,22 @@ export class AppComponent {
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.username = user.username;
-      console.log('username=' + this.username, 'environment=' + JSON.stringify(environment) )
+      console.log('username=' + this.username, 'environment=' + JSON.stringify(environment));
     }
   }
-
 
   logout(): void {
     this.authService.logout().subscribe({
       next: res => {
         console.log(res);
         this.storageService.clean();
-        this.router.navigate(["/","home"]).then(nav => {
+        this.router.navigate(['/', 'home']).then(nav => {
           window.location.reload();
         });
-
       },
       error: err => {
         console.log(err);
-      }
+      },
     });
   }
 
@@ -91,8 +89,7 @@ export class AppComponent {
       'layout-overlay-active': this.layoutService.state.overlayMenuActive,
       'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
       'p-input-filled': this.layoutService.config().inputStyle === 'filled',
-      'p-ripple-disabled': !this.layoutService.config().ripple
-    }
+      'p-ripple-disabled': !this.layoutService.config().ripple,
+    };
   }
-
 }

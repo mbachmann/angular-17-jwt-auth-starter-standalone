@@ -5,14 +5,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { FileDemoRoutingModule } from './filedemo-routing.module';
 import { FileDemoComponent } from './filedemo.component';
 
-
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        FileDemoRoutingModule,
-        FileUploadModule,
-        FileDemoComponent
-    ],
+  imports: [CommonModule, FormsModule, FileDemoRoutingModule, FileUploadModule, FileDemoComponent],
 })
-export class FileDemoModule { }
+export class FileDemoModule {}

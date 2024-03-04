@@ -9,15 +9,6 @@ import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        LoginRoutingModule,
-        ButtonModule,
-        CheckboxModule,
-        InputTextModule,
-        FormsModule,
-        PasswordModule,
-        LoginComponent
-    ]
+  imports: [CommonModule, LoginRoutingModule, ButtonModule, CheckboxModule, InputTextModule, FormsModule, PasswordModule, LoginComponent],
 })
-export class LoginModule { }
+export class LoginModule {}

@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './no-access.component.html',
-  styleUrl: './no-access.component.scss'
+  styleUrl: './no-access.component.scss',
 })
 export class NoAccessComponent {
-  content: string = "You do not have the required rights for accessing this page!";
+  content: string = 'You do not have the required rights for accessing this page!';
 }
