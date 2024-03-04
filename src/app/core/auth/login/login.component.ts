@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   };
   isLoggedIn = false;
   isLoginFailed = false;
-  errorMessage = '';
+  errorMessage;
   roles: string[] = [];
   redirectTo  = "";
 
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
         this.navigateTo();
       },
       error: err => {
-        this.errorMessage = err.error.message;
+        this.errorMessage = err.message;
         this.isLoginFailed = true;
       }
     });

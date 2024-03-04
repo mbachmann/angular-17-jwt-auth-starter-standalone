@@ -57,7 +57,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
               //this.messageService.error(error.message, error);
           }
         }
-
+        this.createErrorMessage(error);
         return throwError(() => error);
       })
     );
@@ -74,7 +74,26 @@ export class HttpRequestInterceptor implements HttpInterceptor {
 
     return next.handle(request);
   }
+
+  createErrorMessage(error) {
+    if (error && error.message && error.error.message) {
+      console.log("Backend no Response")
+      if (error.error.message.toLowerCase().startsWith("Bad credentials")) {
+        error.error.message = "User name and/or password not valid";
+      } else {
+        error.message = error.error.message;
+      }
+
+    } else {
+      console.log("Backend no Response")
+      if (error.message && error.message.toLowerCase().startsWith("http failure response")) {
+        error.message = "No reponse from server! Do you have an internet connection?";
+      }
+    }
+  }
 }
+
+
 
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
