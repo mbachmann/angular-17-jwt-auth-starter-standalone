@@ -2,7 +2,7 @@
   "name": "angular-17-jwt-auth-starter-standalone",
   "config": {
     "app": "angular-17-jwt-auth-starter-standalone",
-    "repo": ""
+    "repo": "uportal"
   },
   "version": "0.0.1",
   "scripts": {
@@ -14,7 +14,7 @@
     "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments}/**/*{.ts,.js,.json,.css,.scss}\"",
     "prettier:format": "prettier --write \"{,src/{app,environments}/**/}*.{md,json,ts,css,scss,yml}\"",
     "remove-unsed-import": "node ./node_modules/tslint/bin/tslint --config tslint-import.json --fix --project .",
-    "docker-login": "cross-conf-env docker login -u uportal  npm_package_config_repo",
+    "docker-login": "cross-conf-env docker login -u uportal",
     "docker-logout": "cross-conf-env docker logout",
     "docker-build-latest": "cross-conf-env docker build -f Dockerfile -t npm_package_config_repo/npm_package_config_app:latest .",
     "docker-push-latest": "cross-conf-env docker push npm_package_config_repo/npm_package_config_app:latest",
@@ -22,6 +22,8 @@
     "docker-push-prod": "cross-conf-env docker push npm_package_config_repo/npm_package_config_app:npm_package_version",
     "docker-compose-up": "cross-conf-env docker compose up",
     "docker-compose-down": "cross-conf-env docker compose down",
+    "docker-compose-up-local": "cross-conf-env docker compose -f docker-compose-local.yml up",
+    "docker-compose-down-local": "cross-conf-env docker compose -f docker-compose-local.yml down",
     "var": "cross-conf-env echo  npm_package_config_repo/npm_package_config_app:npm_package_version",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
